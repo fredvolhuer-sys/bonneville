@@ -3,15 +3,25 @@
 <head>
 <!-- Bonneville Strategic Studio, landing page.
      Self-contained: no fonts, images or scripts to load. Upload as index.html and it works.
-     Optional later: set og:url + og:image to your domain, add a real LinkedIn URL. -->
+     Upload og.jpg and apple-touch-icon.png next to this file (share preview and home-screen icon). -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Bonneville · Strategy, General Management &amp; Finance</title>
 <meta name="description" content="Bonneville advises founders, boards and executive teams on strategy, general management and finance, across emerging technology, immersive media, robotics, applied AI and brand marketing. Paris · Los Angeles.">
 <meta name="theme-color" content="#1A1510">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Bonneville · Strategic Studio">
+<meta property="og:title" content="Bonneville · Strategy, Management &amp; Finance">
 <meta property="og:description" content="Strategy, general management and finance at the frontier of new technology. Founder-led advisory, Paris · Los Angeles.">
+<meta property="og:url" content="https://b-vl.io/">
+<meta property="og:image" content="https://b-vl.io/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Bonneville. Strategy, management and finance at the frontier of new technology.">
+<meta property="og:site_name" content="Bonneville">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://b-vl.io/og.jpg">
+<link rel="canonical" href="https://b-vl.io/">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23E7DFCC'/%3E%3Crect x='1.5' y='1.5' width='29' height='29' fill='none' stroke='%231A1510' stroke-width='2'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%231A1510' text-anchor='middle'%3Eb%3C/text%3E%3C/svg%3E">
 <style>
 :root{
@@ -58,7 +68,7 @@ a{color:inherit}
 h1{font-family:var(--serif);font-weight:400;font-size:clamp(40px,7.6vw,104px);line-height:1;
   letter-spacing:-.02em;margin:0;max-width:13ch}
 h1 em{font-style:italic}
-.uline{box-shadow:inset 0 -.13em 0 0 var(--paper),inset 0 -.25em 0 0 var(--och)}
+.uline{background-image:linear-gradient(var(--och),var(--och));background-repeat:no-repeat;background-position:0 94%;background-size:100% .12em;padding-bottom:.02em}
 .dek{margin-top:clamp(26px,3vw,40px);display:grid;gap:26px 44px;max-width:900px}
 @media(min-width:760px){.dek{grid-template-columns:1.1fr 1fr}}
 .dek p{margin:0;font-size:16px;line-height:1.68;color:var(--body)}
@@ -150,6 +160,86 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4vw,50px);line-
   padding:22px var(--pad);border-top:1px solid var(--prule)}
 .ftr svg{width:124px;color:rgba(231,223,204,.9)}
 .ftr .leg{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(231,223,204,.45)}
+
+/* ================= motion =================
+   Everything below is progressive: without JavaScript, or with
+   reduced motion requested, the page is fully visible and static. */
+:root{--ease:cubic-bezier(.22,.61,.36,1);--ease2:cubic-bezier(.65,0,.35,1)}
+
+/* scroll reveal */
+html.js .rv{opacity:0;transform:translateY(22px);
+  transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+html.js .rv.in{opacity:1;transform:none}
+
+/* headline: words rise out of a mask */
+.w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:0 .05em .1em;margin:0 -.05em -.1em}
+.w>span{display:inline-block}
+html.js .split .w>span{transform:translateY(135%);transition:transform 1s var(--ease);transition-delay:var(--d,0s)}
+html.js .split.in .w>span{transform:none}
+html.js .split .uline{background-size:0% .12em;transition:background-size 1.3s var(--ease2);transition-delay:var(--ud,.9s)}
+html.js .split.in .uline{background-size:100% .12em}
+
+/* masthead + stamp on load */
+html.js .mast{opacity:0;transform:translateY(-10px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+html.js.ready .mast{opacity:1;transform:none}
+html.js .stamp{opacity:0;transform:rotate(-38deg) scale(1.25);transition:opacity .7s var(--ease) 1.1s,transform 1.1s cubic-bezier(.34,1.56,.64,1) 1.1s}
+html.js.ready .stamp{opacity:.8;transform:rotate(var(--sr,-11deg)) scale(1)}
+html.js.settled .stamp{transition:none}
+
+/* buttons: fill sweeps in from the left */
+.btn{position:relative;isolation:isolate;overflow:hidden}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;transform:scaleX(0);transform-origin:right;
+  transition:transform .45s var(--ease2)}
+.btn:hover::before,.btn:focus-visible::before{transform:scaleX(1);transform-origin:left}
+.btn-ink:hover{background:var(--ink);color:var(--ink)}
+.btn-ink::before{background:var(--paper)}
+.btn-line:hover{background:transparent;color:var(--paper)}
+.btn-line::before{background:var(--ink)}
+.btn-paper:hover{background:transparent;color:var(--ink)}
+.btn-paper::before{background:var(--paper)}
+
+/* practice rows: a paper wash slides in, numeral and title step forward */
+.rl li{position:relative;isolation:isolate}
+.rl li::before{content:"";position:absolute;inset:0 calc(var(--pad) * -1);z-index:-1;background:var(--paper2);
+  transform:scaleX(0);transform-origin:left;transition:transform .55s var(--ease2)}
+.rl li:hover::before{transform:scaleX(1)}
+.rl .n,.rl h3{transition:transform .45s var(--ease),color .3s}
+.rl li:hover .n{transform:translateX(8px)}
+.rl li:hover h3{transform:translateX(5px)}
+
+/* award rows: an ochre rule draws under the row, award name nudges right */
+.works tbody tr{position:relative}
+.works tbody td{transition:color .3s}
+.works tbody tr .t{display:table-cell;transition:transform .45s var(--ease)}
+.works tbody tr td:first-child{background-image:linear-gradient(var(--och),var(--och));background-repeat:no-repeat;
+  background-position:0 100%;background-size:0 2px;transition:background-size .5s var(--ease2)}
+.works tbody tr:hover td{border-bottom-color:var(--och)}
+.works tbody tr:hover .t{color:var(--och)}
+.works tbody tr:hover .y{color:var(--ink)}
+
+/* mandate cards: an ochre line draws across the top, title leans in */
+.mand{position:relative}
+.mand::before{content:"";position:absolute;left:0;top:-1px;height:2px;width:100%;background:var(--och);
+  transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease2)}
+@media(min-width:860px){.mand:last-child::before{left:clamp(24px,3vw,44px);width:calc(100% - clamp(24px,3vw,44px))}
+  .mand:first-child::before{width:calc(100% - clamp(24px,3vw,44px))}}
+.mand:hover::before{transform:scaleX(1)}
+.mand h3{transition:transform .5s var(--ease)}
+.mand:hover h3{transform:translateX(6px)}
+
+/* totals count up; contact links underline draws */
+.tot span{font-variant-numeric:tabular-nums}
+.addr a,.mast a{background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;
+  background-position:0 100%;background-size:0 1px;transition:background-size .4s var(--ease2)}
+.addr a:hover,.mast a:hover{background-size:100% 1px}
+
+@media (prefers-reduced-motion:reduce){
+  html.js .rv,html.js .split .w>span,html.js .mast,html.js .stamp{opacity:1!important;transform:none!important;transition:none!important}
+  html.js .stamp{opacity:.8!important;transform:rotate(-11deg)!important}
+  html.js .split .uline{background-size:100% .12em!important;transition:none!important}
+  .rl li::before,.mand::before,.btn::before{transition:none!important}
+  .rl li:hover .n,.rl li:hover h3,.mand:hover h3{transform:none!important}
+}
 </style>
 </head>
 <body>
@@ -159,7 +249,7 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4vw,50px);line-
 <header class="mast">
   <div class="l">Strategy · Management<br>Finance · Growth</div>
   <a class="brand" href="#top" aria-label="Bonneville"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 243 38" fill="currentColor" fill-rule="evenodd"><path d="M18.75,37.88L11.58,37.88L11.35,37.38L10.88,36.95L9.71,36.62L8.62,35.92L7.75,35.83L7.35,35.88L6.98,36.12L6.10,37.12L5.89,37.88L4.59,37.88L4.60,7.25L3.92,5.12L2.60,4.12L1.27,3.62L0.96,2.88L1.11,2.25L1.38,1.96L2.88,1.34L5.38,0.84L5.90,0.50L6.14,0.00L8.25,0.00L8.28,14.12L8.14,15.12L8.25,15.52L8.88,15.64L13.25,14.19L17.38,13.99L19.98,14.25L20.88,14.81L22.00,15.25L24.50,17.47L25.70,19.38L26.05,20.75L26.63,21.75L26.90,24.50L26.78,28.75L26.62,29.33L26.02,30.25L25.70,31.50L25.12,32.29L24.62,33.45L23.57,34.62L22.25,35.77L20.75,36.64L19.25,37.16L18.75,37.88Z M173.75,3.88L171.88,3.81L171.43,3.62L171.12,3.27L170.61,1.88L171.32,0.00L174.69,0.00L174.97,0.75L175.75,1.48L175.85,2.00L175.61,2.62L174.50,3.69L173.75,3.88Z M205.38,36.89L181.25,36.91L180.50,36.82L180.05,36.50L180.07,36.25L180.50,35.98L184.38,34.97L184.80,34.50L184.97,33.62L185.05,5.75L184.83,5.00L184.00,4.12L182.56,3.62L181.37,2.75L181.29,2.25L181.65,1.88L182.75,1.29L184.88,0.84L185.32,0.50L185.56,0.00L188.80,0.00L188.63,2.88L188.66,34.12L188.88,34.75L189.38,35.14L193.50,35.99L197.38,34.97L197.85,34.38L197.98,33.38L198.05,5.75L197.83,5.00L197.00,4.12L195.38,3.52L194.38,2.76L194.26,2.38L194.48,2.00L195.50,1.38L198.00,0.78L198.56,0.00L201.80,0.00L201.63,2.88L201.65,34.00L201.88,34.75L202.25,35.09L205.62,35.96L205.82,36.50L205.38,36.89Z M238.88,11.89L235.50,11.98L234.75,11.75L233.25,10.77L232.78,10.00L232.13,9.50L231.85,8.12L231.12,7.38L231.08,5.62L231.81,4.75L232.12,3.38L232.75,2.91L233.25,2.11L234.12,1.69L235.00,1.02L238.12,0.92L238.88,1.03L240.62,2.10L241.77,3.50L241.89,4.38L241.75,4.85L241.25,4.55L240.50,3.34L239.46,2.75L238.62,1.98L235.50,1.91L235.00,2.02L234.75,2.25L234.84,2.75L235.25,3.02L237.75,3.00L238.38,3.13L238.75,3.41L239.25,4.25L239.29,4.62L238.05,6.00L237.91,6.62L239.17,8.00L240.01,9.38L240.38,9.56L240.71,9.50L241.25,8.33L241.62,8.05L241.85,8.12L241.89,8.88L241.72,9.50L241.07,10.00L240.62,10.78L239.75,11.18L238.88,11.89Z M238.39,10.88L238.88,10.77L239.12,10.52L239.09,9.50L237.38,7.58L237.02,6.75L236.62,6.38L236.01,6.50L235.78,7.12L235.93,7.62L236.68,8.25L236.70,8.62L236.52,8.88L236.12,8.98L234.50,8.86L234.03,8.62L233.97,8.12L234.49,7.12L234.37,6.00L234.45,4.62L233.88,3.66L233.25,3.54L231.97,5.50L231.88,6.75L232.16,7.88L232.88,8.60L233.31,9.50L235.12,10.78L238.39,10.88Z M237.57,5.00L237.91,4.50L237.50,3.95L236.50,3.92L235.98,4.25L235.93,4.62L236.25,4.95L237.57,5.00Z M242.88,7.78L242.12,7.77L242.03,7.62L242.12,5.11L242.88,5.09L242.88,7.78Z M47.12,37.88L39.45,37.88L38.78,37.12L37.38,36.67L35.62,35.63L34.38,34.41L33.34,33.25L32.84,32.25L32.18,31.50L31.86,30.25L31.19,29.12L30.97,26.00L31.12,23.25L31.30,22.62L31.82,21.75L32.25,20.25L33.38,18.47L35.61,16.25L37.12,15.21L38.50,14.81L39.75,14.21L42.38,13.91L45.75,13.99L47.12,14.21L49.50,15.18L51.38,16.35L53.50,18.58L54.03,19.62L54.75,20.48L55.64,22.62L55.89,25.38L55.77,29.00L55.62,29.56L55.07,30.38L54.75,31.39L52.27,34.62L49.50,36.57L47.88,37.12L47.12,37.88Z M86.12,36.88L75.62,36.90L75.06,36.62L75.03,36.12L75.38,35.78L76.50,35.39L78.50,35.08L78.82,34.88L79.03,34.50L79.07,21.75L78.82,20.12L77.62,18.29L75.40,17.12L74.25,16.89L72.50,17.01L69.88,17.99L67.25,19.87L66.86,20.62L66.95,34.38L67.12,34.76L67.50,35.01L71.12,36.02L71.42,36.25L71.36,36.62L70.38,36.92L59.88,36.92L59.27,36.75L59.09,36.38L59.38,35.99L61.91,35.38L62.75,35.03L63.06,34.50L63.18,33.75L63.23,24.25L63.10,22.62L62.64,21.88L61.75,21.56L60.19,20.62L60.03,20.12L60.19,19.50L60.62,19.16L61.75,18.82L63.09,17.75L64.87,15.88L65.62,14.38L66.12,14.00L66.62,14.05L66.91,14.38L66.83,17.38L67.00,17.84L67.38,18.04L67.85,17.88L68.62,17.00L69.66,16.25L70.62,15.85L71.38,15.20L72.63,14.88L73.88,14.15L75.50,13.98L78.25,14.07L78.88,14.25L80.38,15.15L81.72,16.50L82.70,19.00L82.79,33.12L82.92,34.38L83.38,34.96L85.25,35.21L86.38,35.77L86.67,36.12L86.68,36.50L86.50,36.75L86.12,36.88Z M115.00,36.88L104.62,36.90L104.06,36.62L104.03,36.12L104.38,35.78L105.50,35.39L107.50,35.08L107.82,34.88L108.03,34.50L108.05,21.38L107.77,20.00L106.50,18.18L104.12,17.03L102.62,16.89L101.38,17.04L98.75,18.06L96.24,19.88L95.84,20.75L95.95,34.38L96.12,34.76L96.50,35.01L100.12,36.02L100.42,36.25L100.36,36.62L99.38,36.92L88.75,36.92L88.38,36.81L88.15,36.38L88.38,35.99L90.91,35.38L91.78,35.00L92.12,34.25L92.23,32.75L92.23,24.25L92.10,22.62L91.64,21.88L90.75,21.56L89.19,20.62L89.03,20.12L89.19,19.50L89.62,19.16L90.75,18.82L92.09,17.75L93.87,15.88L94.62,14.38L95.12,14.00L95.62,14.05L95.91,14.38L95.83,17.38L96.00,17.84L96.38,18.04L96.85,17.88L97.62,17.00L98.66,16.25L99.62,15.85L100.38,15.20L101.63,14.88L102.88,14.15L104.50,13.98L107.25,14.07L107.88,14.25L109.38,15.15L110.72,16.50L111.70,19.00L111.79,33.12L111.92,34.38L112.38,34.96L114.25,35.21L115.52,35.88L115.72,36.12L115.74,36.50L115.50,36.77L115.00,36.88Z M132.62,37.88L125.40,37.88L124.98,37.12L123.47,36.62L122.25,35.72L121.25,34.71L120.20,33.38L119.87,32.25L119.13,31.00L118.94,29.25L118.56,28.12L118.61,25.50L119.24,22.00L119.88,20.88L120.22,19.75L121.38,17.87L122.98,16.25L124.38,15.19L125.50,14.79L126.62,14.16L128.62,13.90L131.62,14.02L132.88,14.29L134.50,15.14L136.73,17.38L137.69,19.12L138.22,21.12L138.65,22.00L138.51,22.62L137.82,22.88L123.50,22.99L122.98,23.12L122.67,23.50L122.65,26.62L122.99,28.88L123.57,29.75L124.04,31.00L125.18,32.50L127.00,33.86L130.25,34.95L132.50,34.91L135.62,33.88L138.12,32.17L138.50,32.16L138.75,32.35L138.86,32.88L138.71,33.38L137.55,34.62L136.35,35.62L135.38,36.06L134.62,36.60L133.12,37.12L132.62,37.88Z M178.38,36.88L167.50,36.93L167.00,36.78L166.77,36.50L166.78,36.25L167.12,35.97L169.00,35.39L170.88,35.03L171.36,34.50L171.61,33.62L171.57,22.62L171.00,21.94L168.25,20.69L168.05,20.25L168.12,19.75L168.50,19.28L169.75,18.89L170.50,18.19L171.43,17.62L172.88,15.94L174.03,14.25L174.50,14.00L175.12,14.21L175.35,14.75L175.23,15.88L175.28,32.12L175.16,33.50L175.45,34.25L176.00,34.89L178.00,35.40L178.88,35.88L179.13,36.25L179.10,36.50L178.38,36.88Z M222.38,37.89L215.18,37.88L214.75,37.12L213.38,36.66L212.00,35.68L210.25,33.73L209.21,31.75L208.79,29.88L208.27,28.62L208.30,24.88L208.97,22.75L209.17,21.50L209.80,20.50L210.18,19.38L211.35,17.50L212.50,16.35L214.12,15.22L216.38,14.17L218.25,13.91L219.62,13.90L222.53,14.25L223.38,14.80L224.38,15.19L225.62,16.31L226.62,17.53L227.01,18.62L227.76,19.75L227.92,21.25L228.26,22.25L228.13,22.62L227.75,22.83L213.38,22.99L212.62,23.19L212.30,23.62L212.28,26.62L213.03,29.62L213.67,30.50L214.06,31.50L215.12,32.75L216.75,33.82L220.00,34.91L221.75,34.95L222.79,34.75L225.37,33.88L227.75,32.24L228.25,32.20L228.53,32.38L228.65,32.75L228.50,33.25L227.41,34.50L224.50,36.57L223.00,37.04L222.38,37.89Z M44.45,36.88L47.00,35.86L48.57,34.88L49.75,33.25L50.99,30.62L51.66,25.75L51.27,24.25L50.86,21.25L50.25,20.13L49.82,18.75L48.75,17.12L47.38,16.02L45.00,15.11L42.75,15.01L39.38,16.11L38.11,17.12L37.11,18.50L36.06,20.62L35.86,21.38L35.63,23.62L35.65,28.62L36.07,31.50L36.67,32.50L37.03,33.62L38.25,34.87L39.50,35.84L42.00,36.85L44.45,36.88Z M132.88,21.88L133.75,21.55L134.17,20.75L134.26,19.88L133.87,17.88L132.62,16.03L130.88,15.17L130.00,14.99L128.00,15.16L126.25,16.03L125.22,16.88L124.11,18.50L123.57,20.12L123.00,20.85L122.89,21.25L123.08,21.75L123.50,21.92L132.88,21.88Z M154.25,37.89L152.86,37.88L152.67,37.12L152.07,36.25L151.85,35.25L151.21,34.38L150.80,33.12L150.21,32.38L149.93,31.12L149.25,30.15L148.92,28.88L148.17,27.50L147.85,26.25L147.21,25.38L146.93,24.12L146.29,23.25L145.87,21.75L145.23,20.62L144.75,19.27L144.17,18.38L143.82,17.38L143.25,16.94L140.25,16.01L139.99,15.50L140.25,15.00L151.88,14.93L152.62,15.14L152.73,15.62L152.38,15.99L151.25,16.35L148.38,16.83L148.04,17.12L147.98,17.62L148.68,18.62L148.97,19.88L149.62,21.12L150.12,22.62L150.66,23.50L150.95,24.75L151.64,25.75L152.02,27.38L152.70,28.38L153.09,29.75L153.73,30.62L154.00,31.85L154.25,32.19L154.50,32.26L155.00,32.01L155.71,31.00L156.22,29.62L156.83,28.62L157.12,27.49L157.75,26.25L158.24,24.62L158.81,23.62L159.35,21.75L159.92,20.62L160.25,18.50L160.17,17.50L159.76,16.88L156.38,15.92L156.07,15.62L156.15,15.12L156.62,14.91L166.50,14.93L167.12,15.01L167.49,15.25L167.39,15.75L166.62,16.15L163.21,16.88L162.20,18.38L161.67,20.38L161.06,21.50L160.55,23.12L159.93,24.25L159.65,25.38L159.08,26.25L157.58,30.25L156.94,31.25L156.67,32.38L156.03,33.25L155.70,34.50L155.08,35.38L154.25,37.89Z M222.60,21.88L223.50,21.53L223.97,20.88L224.10,19.88L223.80,18.38L222.88,16.62L222.50,16.19L220.75,15.24L219.62,15.00L218.00,15.08L215.88,16.14L214.07,18.12L213.12,20.01L212.77,21.12L212.92,21.62L213.50,21.89L222.60,21.88Z M15.92,35.88L18.88,34.84L20.50,33.57L21.80,31.75L22.96,27.62L22.89,24.25L21.82,20.88L20.85,19.25L19.62,18.02L18.25,17.04L15.71,16.00L14.75,15.89L12.50,15.98L9.12,17.14L8.77,17.62L8.29,19.25L8.23,28.12L8.62,29.75L8.71,32.12L9.25,33.59L10.68,34.88L12.12,35.33L13.25,35.94L15.92,35.88Z"/></svg></a>
-  <div class="r">Paris · Los Angeles<br><a href="mailto:fred@bv-l.io" style="color:inherit">fred@bv-l.io</a></div>
+  <div class="r">Paris · Los Angeles<br><a href="mailto:fred@b-vl.io" style="color:inherit">fred@b-vl.io</a></div>
 </header>
 
 <main id="main">
@@ -168,7 +258,7 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4vw,50px);line-
   <h1 class="serif">Strategy, management and finance at the <em>frontier</em> of <span class="uline">new technology</span>.</h1>
   <div class="dek">
     <p>Bonneville advises founders, boards and executive teams on strategy, operations and financing: from company building and P&amp;L ownership to fundraising, cross-border co-production and go-to-market.</p>
-    <p>Led by Fred Volhuer, co-founder and former CEO of Atlas&nbsp;V, whose productions won more than 30 international awards including an Emmy, and Guest Professor at Arizona State University. Sector experience spans emerging technology, immersive and spatial media, robotics, applied AI and brand marketing including social platforms.</p>
+    <p>Led by Fred Volhuer, co-founder and former CEO of Atlas&nbsp;V, whose productions won more than 30 international awards including an Emmy and two Peabody Awards, and Guest Professor at Arizona State University. Sector experience spans emerging technology, immersive and spatial media, robotics, applied AI and brand marketing including social platforms.</p>
   </div>
   <div class="cta">
     <a class="btn btn-ink" href="#contact">Start a conversation</a>
@@ -213,21 +303,24 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4vw,50px);line-
   <p class="eyebrow"><b>03</b>Recognition</p>
   <h2 class="serif">Recognition for the productions led at Atlas&nbsp;V.</h2>
   <div class="tot">
-    <div><span class="serif">30+</span><p>International awards, including an Emmy and prizes at Venice, Annecy and SXSW</p></div>
+    <div><span class="serif">30+</span><p>International awards, including an Emmy, two Peabody Awards and prizes at Venice, Annecy, SXSW and Tribeca</p></div>
     <div><span class="serif">130+</span><p>Official festival selections, among them Sundance, Tribeca, Toronto, Venice and SXSW</p></div>
   </div>
   <table class="works">
     <caption>Selected awards · Atlas&nbsp;V, co-founded and led as CEO by Fred Volhuer</caption>
     <thead><tr><th>Year</th><th>Award</th><th class="hp">Production</th></tr></thead>
     <tbody><tr><td class="y">2022</td><td class="t serif">Emmy Award, Outstanding Interactive Media</td><td class="p hp">Madrid Noir</td></tr>
-      <tr><td class="y">2018</td><td class="t serif">Venice Immersive, Best VR Experience</td><td class="p hp">Spheres</td></tr>
-      <tr><td class="y">2023</td><td class="t serif">Venice Immersive, Achievement Prize</td><td class="p hp">Empereur (Emperor)</td></tr>
+      <tr><td class="y">2022</td><td class="t serif">Peabody Legacy Award, Digital &amp; Interactive Storytelling</td><td class="p hp">Notes on Blindness: Into Darkness</td></tr>
+      <tr><td class="y">2019</td><td class="t serif">Peabody Futures of Media Award</td><td class="p hp">Vestige</td></tr>
+      <tr><td class="y">2018</td><td class="t serif">Venice Mostra, Best VR Experience</td><td class="p hp">Spheres</td></tr>
+      <tr><td class="y">2023</td><td class="t serif">Venice Mostra, Achievement Prize</td><td class="p hp">Empereur (Emperor)</td></tr>
       <tr><td class="y">2019</td><td class="t serif">Annecy, VR Crystal / Best VR Experience</td><td class="p hp">Gloomy Eyes</td></tr>
+      <tr><td class="y">2019</td><td class="t serif">Annecy, Jury Special Mention</td><td class="p hp">Pulsión</td></tr>
       <tr><td class="y">2022</td><td class="t serif">SXSW, Best VR Experience</td><td class="p hp">On the Morning You Wake</td></tr>
       <tr><td class="y">2019</td><td class="t serif">SXSW, Jury Award for Storytelling</td><td class="p hp">Gloomy Eyes</td></tr>
       <tr><td class="y">2024</td><td class="t serif">SXSW, XR Experience Spotlight Audience Award</td><td class="p hp">Empereur (Emperor)</td></tr>
-      <tr><td class="y">2018</td><td class="t serif">GIFF, Reflet d&#x27;Or, Best Immersive Work</td><td class="p hp">Vestige</td></tr>
-      <tr><td class="y">2019</td><td class="t serif">Peabody, Future of Media Award</td><td class="p hp">Atlas V slate</td></tr></tbody>
+      <tr><td class="y">2016</td><td class="t serif">Tribeca, Storyscapes Award</td><td class="p hp">Notes on Blindness: Into Darkness</td></tr>
+      <tr><td class="y">2018</td><td class="t serif">GIFF, Reflet d&#x27;Or, Best Immersive Work</td><td class="p hp">Vestige</td></tr></tbody>
   </table>
   <p class="more">Productions have also been recognised by the Webby and Annie Awards.</p>
 </section>
@@ -238,10 +331,10 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4vw,50px);line-
     <div>
       <h2 class="serif">Start a conversation.</h2>
       <p class="lead">Tell us about the business, the mandate or the raise. Enquiries from founders, boards, investors, brands and institutions are read directly.</p>
-      <a class="btn btn-paper" href="mailto:fred@bv-l.io?subject=Enquiry%20%E2%80%94%20Bonneville">Email the studio</a>
+      <a class="btn btn-paper" href="mailto:fred@b-vl.io?subject=Enquiry%20from%20b-vl.io">Email the studio</a>
     </div>
     <div class="addr">
-      <div><div class="k">Direct</div><div class="v"><a href="mailto:fred@bv-l.io">fred@bv-l.io</a></div></div>
+      <div><div class="k">Direct</div><div class="v"><a href="mailto:fred@b-vl.io">fred@b-vl.io</a></div></div>
       <div><div class="k">Founder</div><div class="v">Fred Volhuer, co-founder &amp; former CEO of Atlas&nbsp;V · Guest Professor, Arizona State University</div></div>
       <div><div class="k">Offices</div><div class="v">Paris · Los Angeles</div></div>
     </div>
@@ -255,5 +348,107 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4vw,50px);line-
 </footer>
 
 </div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!('IntersectionObserver' in window)) return;          /* old browsers: static page */
+  root.classList.add('js');
+
+  /* split headlines into masked words, keeping <em> and the underline span intact */
+  function split(el){
+    var n=0;
+    (function walk(node){
+      [].slice.call(node.childNodes).forEach(function(c){
+        if(c.nodeType===3){
+          var parts=c.textContent.split(/( +)/), frag=document.createDocumentFragment();
+          parts.forEach(function(t){
+            if(!t) return;
+            if(/^ +$/.test(t)){frag.appendChild(document.createTextNode(t));return;}
+            var w=document.createElement('span'); w.className='w';
+            var i=document.createElement('span'); i.textContent=t;
+            i.style.setProperty('--d',(0.06*n++).toFixed(2)+'s');
+            w.appendChild(i); frag.appendChild(w);
+          });
+          c.parentNode.replaceChild(frag,c);
+        } else if(c.nodeType===1){ walk(c); }
+      });
+    })(el);
+    el.classList.add('split');
+    var u=el.querySelector('.uline'); if(u) u.style.setProperty('--ud',(0.06*n+0.25).toFixed(2)+'s');
+  }
+  document.querySelectorAll('h1, h2').forEach(split);
+
+  /* reveal targets, staggered within their group */
+  var groups=[
+    ['.hero .cat,.dek p,.cta',0.12],
+    ['.eyebrow',0],['.rl li',0.07],['.mand',0.14],['.tot > div',0.14],
+    ['.works caption,.works thead tr',0],['.works tbody tr',0.05],['.more',0],
+    ['.ct .lead,.ct .btn,.addr > div',0.08]
+  ];
+  groups.forEach(function(g){
+    document.querySelectorAll(g[0]).forEach(function(el,i){
+      el.classList.add('rv'); el.style.setProperty('--d',(g[1]*i).toFixed(2)+'s');
+    });
+  });
+  /* hero copy follows the headline */
+  document.querySelectorAll('.hero .rv').forEach(function(el,i){
+    el.style.setProperty('--d',(0.55+0.12*i).toFixed(2)+'s');
+  });
+
+  /* count-up for the totals */
+  function count(el){
+    var txt=el.textContent, m=txt.match(/^(\d+)(.*)$/); if(!m) return;
+    var end=+m[1], suf=m[2], t0=null, dur=1400;
+    if(reduce){return;}
+    function step(t){ if(!t0)t0=t; var k=Math.min(1,(t-t0)/dur); k=1-Math.pow(1-k,3);
+      el.textContent=Math.round(end*k)+suf; if(k<1) requestAnimationFrame(step); }
+    el.textContent='0'+suf; requestAnimationFrame(step);
+  }
+
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      e.target.classList.add('in'); io.unobserve(e.target);
+      if(e.target.matches('.tot > div')){ var sp=e.target.querySelector('span'); if(sp) count(sp); }
+    });
+  },{rootMargin:'0px 0px -6% 0px',threshold:0});
+  /* the hero plays on load; everything else waits for scroll */
+  var hero=document.querySelector('.hero');
+  document.querySelectorAll('.rv,.split').forEach(function(el){ if(!hero.contains(el)) io.observe(el); });
+
+  /* safety net: at the bottom of the page, nothing stays hidden */
+  function sweep(){
+    if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4){
+      document.querySelectorAll('.rv:not(.in),.split:not(.in)').forEach(function(el){
+        el.classList.add('in'); io.unobserve(el);
+        if(el.matches('.tot > div')){ var sp=el.querySelector('span'); if(sp) count(sp); }
+      });
+    }
+  }
+  window.addEventListener('scroll',sweep,{passive:true});
+
+  /* load sequence */
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){
+    root.classList.add('ready');
+    hero.querySelectorAll('.rv,.split').forEach(function(el){ el.classList.add('in'); });
+  }); });
+
+  /* the stamp turns slowly as you scroll */
+  var stamp=document.querySelector('.stamp');
+  if(stamp && !reduce){
+    setTimeout(function(){ root.classList.add('settled'); },2400);
+    var ticking=false;
+    window.addEventListener('scroll',function(){
+      if(ticking) return; ticking=true;
+      requestAnimationFrame(function(){
+        stamp.style.setProperty('--sr',(-11+window.scrollY*0.04).toFixed(2)+'deg');
+        ticking=false;
+      });
+    },{passive:true});
+  }
+})();
+</script>
 </body>
 </html>
