@@ -114,6 +114,7 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4vw,50px);line-
 .works .p{font-size:12px;color:var(--mut)}
 @media(max-width:700px){.works .hp,.works .p{display:none}}
 .works td.role{display:table-cell;max-width:260px}
+.works td.yy{white-space:normal;min-width:5.6em}
 @media(max-width:700px){.works td.role{display:table-cell;font-size:11px;max-width:none}}
 .more{margin-top:22px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--mut)}
 
@@ -148,6 +149,12 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4vw,50px);line-
 .mand .what{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--body);margin:0 0 16px}
 .mand p.b{margin:0;font-size:14px;line-height:1.66;color:var(--body)}
 
+
+.laur{font-family:var(--serif);font-size:clamp(17px,1.7vw,22px);line-height:1.45;letter-spacing:-.008em;
+  color:var(--ink);margin:0 0 clamp(30px,3.4vw,44px);max-width:52ch;padding-left:clamp(14px,1.6vw,22px);
+  border-left:2px solid var(--och)}
+.laur b{font-weight:400;background-image:linear-gradient(var(--och),var(--och));background-repeat:no-repeat;
+  background-position:0 95%;background-size:100% .09em}
 /* thesis figures */
 .figs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--rule);margin:0 0 36px}
 @media(min-width:1000px){.figs{grid-template-columns:repeat(4,minmax(0,1fr))}}
@@ -375,6 +382,8 @@ html.js.settled .stamp{transition:none}
     <div><span class="serif">30+</span><p>International awards, including an Emmy, two Peabody Awards and prizes at Venice, Annecy, SXSW and Tribeca</p></div>
     <div><span class="serif">130+</span><p>Official festival selections, among them Sundance, Tribeca, Toronto, Venice and SXSW</p></div>
   </div>
+  <p class="laur">Atlas&nbsp;V was a laureate of the <b>Prix IFCIC Entreprendre dans la Culture</b> in 2020, the award given by the IFCIC and the French Ministry of Culture for innovative business models in the cultural sector.</p>
+
   <table class="works">
     <caption>Selected awards · Atlas&nbsp;V, co-founded and led as CEO by Fred Volhuer</caption>
     <thead><tr><th>Year</th><th>Award</th><th class="hp">Production</th></tr></thead>
@@ -398,10 +407,12 @@ html.js.settled .stamp{transition:none}
     <thead><tr><th>Year</th><th>Festival or stage</th><th>Role</th></tr></thead>
     <tbody>
       <tr><td class="y">2025</td><td class="t serif">SXSW</td><td class="p role">Jury member</td></tr>
+      <tr><td class="y yy">2024, 2025</td><td class="t serif">Telly Awards</td><td class="p role">Judge</td></tr>
       <tr><td class="y">2024</td><td class="t serif">TEDx PSB, Paris</td><td class="p role">Speaker, on the theme 2039</td></tr>
       <tr><td class="y">2023</td><td class="t serif">FilmGate Miami</td><td class="p role">Jury member</td></tr>
       <tr><td class="y">2022</td><td class="t serif">Festival de Cannes</td><td class="p role">Technical jury (CST), Official Competition</td></tr>
       <tr><td class="y">2020</td><td class="t serif">Tribeca Film Festival</td><td class="p role">Panellist</td></tr>
+      <tr><td class="y">2018</td><td class="t serif">Made in NY Award, New York</td><td class="p role">Jury member</td></tr>
     </tbody>
   </table>
 </section>
