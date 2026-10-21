@@ -7,16 +7,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Bonneville · Strategy, General Management &amp; Finance</title>
-<meta name="description" content="Bonneville advises founders, boards and executive teams on strategy, general management and finance, across emerging technology, immersive media, robotics, applied AI and brand marketing. Paris · Los Angeles.">
+<meta name="description" content="Bonneville advises founders, boards and executive teams on strategy, general management and finance. High Frequency Content for legacy film and TV libraries, emerging technology, robotics and applied AI. Paris · Los Angeles.">
 <meta name="theme-color" content="#1A1510">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Bonneville · Strategy, Management &amp; Finance">
-<meta property="og:description" content="Strategy, general management and finance at the frontier of new technology. Founder-led advisory, Paris · Los Angeles.">
+<meta property="og:description" content="Strategy, general management and finance at the frontier of story and technology. Founder-led advisory, Paris · Los Angeles.">
 <meta property="og:url" content="https://b-vl.io/">
 <meta property="og:image" content="https://b-vl.io/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Bonneville. Strategy, management and finance at the frontier of new technology.">
+<meta property="og:image:alt" content="Bonneville. Strategy, management and finance at the frontier of story and technology.">
 <meta property="og:site_name" content="Bonneville">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://b-vl.io/og.jpg">
@@ -127,16 +127,40 @@ h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4vw,50px);line-
 
 /* mandates */
 .mgrid{display:grid;border-top:1px solid var(--rule)}
-@media(min-width:860px){.mgrid{grid-template-columns:1fr 1fr}}
-.mand{padding:clamp(24px,3vw,38px) 0;border-bottom:1px solid var(--thin)}
-@media(min-width:860px){.mand:first-child{padding-right:clamp(24px,3vw,44px);border-right:1px solid var(--thin)}
-  .mand:last-child{padding-left:clamp(24px,3vw,44px)}}
+@media(min-width:820px){.mgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.mand{position:relative;min-width:0;padding:clamp(24px,3vw,36px) 0;border-bottom:1px solid var(--thin)}
+@media(min-width:820px){
+  .mand{border-bottom:0;border-right:1px solid var(--thin);padding-inline:clamp(18px,2.2vw,30px)}
+  .mand:first-child{padding-left:0}
+  .mand:last-child{padding-right:0;border-right:0}
+}
+.mand::before{content:"";position:absolute;left:0;top:-1px;height:2px;width:100%;background:var(--och);
+  transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease2)}
+.mand:hover::before{transform:scaleX(1)}
 .mand .tagl{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:9.5px;
   letter-spacing:.22em;text-transform:uppercase;color:var(--och);margin-bottom:14px}
 .mand .tagl span:last-child{color:var(--mut)}
-.mand h3{font-family:var(--serif);font-weight:400;font-size:clamp(26px,2.8vw,38px);line-height:1.08;letter-spacing:-.015em;margin:0 0 6px}
-.mand .what{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--body);margin:0 0 16px}
-.mand p.b{margin:0;font-size:14.5px;line-height:1.68;color:var(--body)}
+.mand h3{font-family:var(--serif);font-weight:400;font-size:clamp(24px,2.5vw,33px);line-height:1.08;
+  letter-spacing:-.015em;margin:0 0 6px;transition:transform .5s var(--ease)}
+.mand:hover h3{transform:translateX(6px)}
+.mand .what{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--body);margin:0 0 16px}
+.mand p.b{margin:0;font-size:14px;line-height:1.66;color:var(--body)}
+
+/* thesis figures */
+.figs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--rule);margin:0 0 36px}
+@media(min-width:1000px){.figs{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.figs div{min-width:0;padding:22px clamp(14px,1.8vw,26px) 22px 0;border-right:1px solid var(--thin);border-bottom:1px solid var(--thin)}
+@media(min-width:1000px){.figs div{border-bottom:0}.figs div:last-child{border-right:0}}
+.figs .n{font-family:var(--serif);font-size:clamp(34px,4.2vw,58px);line-height:.95;letter-spacing:-.025em;font-variant-numeric:tabular-nums}
+.figs .k{font-size:13px;line-height:1.5;color:var(--body);margin-top:9px}
+.figs .src{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-top:7px}
+/* thesis statement */
+.stmt{font-family:var(--serif);font-size:clamp(20px,2.3vw,30px);line-height:1.35;letter-spacing:-.012em;margin:0 0 34px;max-width:30ch}
+.stmt b{font-weight:400;background-image:linear-gradient(var(--och),var(--och));background-repeat:no-repeat;background-position:0 94%;background-size:100% .1em}
+.pf{border-top:1px solid var(--rule);margin-top:34px;padding-top:24px;display:grid;gap:22px}
+@media(min-width:860px){.pf{grid-template-columns:1fr 1fr}}
+.pf p{margin:0;font-size:14px;line-height:1.68;color:var(--body)}
+.pf .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--och);margin-bottom:9px}
 
 /* contact */
 .ink{background:var(--ink);color:var(--paper);position:relative;isolation:isolate}
@@ -255,14 +279,14 @@ html.js.settled .stamp{transition:none}
 <main id="main">
 <section class="hero" id="top">
   <span class="cat">Strategy · General Management · Finance</span>
-  <h1 class="serif">Strategy, management and finance at the <em>frontier</em> of <span class="uline">new technology</span>.</h1>
+  <h1 class="serif">Strategy, management and finance at the <em>frontier</em> of <span class="uline">story and technology</span>.</h1>
   <div class="dek">
-    <p>Bonneville advises founders, boards and executive teams on strategy, operations and financing: from company building and P&amp;L ownership to fundraising, cross-border co-production and go-to-market.</p>
+    <p>Bonneville advises founders, boards and executive teams on strategy, operations and financing: from company building and P&amp;L ownership to fundraising, acquisitions and go-to-market. Current focus: putting legacy film and TV libraries back in step with how audiences now find things.</p>
     <p>Led by Fred Volhuer, co-founder and former CEO of Atlas&nbsp;V, whose productions won more than 30 international awards including an Emmy and two Peabody Awards, and Guest Professor at Arizona State University. Sector experience spans emerging technology, immersive and spatial media, robotics, applied AI and brand marketing including social platforms.</p>
   </div>
   <div class="cta">
     <a class="btn btn-ink" href="#contact">Start a conversation</a>
-    <a class="btn btn-line" href="#mandates">Recent mandates</a>
+    <a class="btn btn-line" href="#thesis">Read the thesis</a>
   </div>
   <div class="stamp" aria-hidden="true"><span>Founder<br>Operator<br>Advisor<br>· 2026 ·</span></div>
 </section>
@@ -280,10 +304,53 @@ html.js.settled .stamp{transition:none}
   </ol>
 </section>
 
+<section class="sec" id="thesis">
+  <p class="eyebrow"><b>02</b>Thesis</p>
+  <h2 class="serif">High Frequency Content for legacy film and TV libraries.</h2>
+  <p class="stmt">Legacy libraries run on slow cycles in a world of <b>fast attention</b>. The value is already there. The machinery to answer an audience within days is not.</p>
+
+  <div class="figs">
+    <div><div class="n">50%</div><p class="k">of TikTok users say they discovered a new film there</p><p class="src">TikTok, 2026</p></div>
+    <div><div class="n">12.5%</div><p class="k">YouTube's share of all US TV viewing, January 2026</p><p class="src">Nielsen</p></div>
+    <div><div class="n">$11bn</div><p class="k">FAST revenue by 2030, up from $6bn in 2025</p><p class="src">Omdia</p></div>
+    <div><div class="n">$35bn</div><p class="k">Volumetric video market by 2034, growing 26.7% a year</p><p class="src">Fortune BI</p></div>
+  </div>
+
+  <div class="split" style="margin-bottom:38px">
+    <div>
+      <p class="lede">Library content is the backbone of viewing: the most streamed US title of 2023 was Suits, a series that ended in 2019. Discovery now happens in clips, and a channel of film extracts carries more than 66 million subscribers.</p>
+    </div>
+    <div>
+      <p class="lede">Yet most libraries still run on calendars set months ahead. Their value hides in concentration, erosion and latency. When an actor trends, a remake is announced or a scene becomes a meme, the window lasts days, and nobody is there to answer it.</p>
+    </div>
+  </div>
+
+  <ol class="rl">
+    <li><span class="n serif">01.</span><h3 class="serif">Real-time analysis</h3><p>A Social Media Brain detects and qualifies signals across social conversation, search, streaming charts and news, then matches them to titles and audiences.</p></li>
+    <li><span class="n serif">02.</span><h3 class="serif">Content test loops</h3><p>Several angles per signal, from clips and recuts to trailers and localised versions, tested against controls. Budgets move daily to what works.</p></li>
+    <li><span class="n serif">03.</span><h3 class="serif">Sharp production capacity</h3><p>A small team on AI pipelines turns an opportunity into validated content within hours, at a unit cost that makes thousands of niche audiences worth serving.</p></li>
+    <li><span class="n serif">04.</span><h3 class="serif">Decisions and reach</h3><p>The same evidence scores acquisitions, renewals and reissues, and feeds AI localisation and FAST and AVOD channels.</p></li>
+    <li><span class="n serif">05.</span><h3 class="serif">New forms of engagement</h3><p>A 4D Gaussian Splatting pipeline captures talent volumetrically for photoreal holograms, XR and mobile AR. One capture can be re-rendered from any angle, feeding the loop with new material.</p></li>
+  </ol>
+
+  <div class="pf">
+    <div><p class="k">It already works</p><p>Terrifier 3 grossed about $80m on roughly $500,000 of marketing through owned media. A TikTok surge was credited with about $58m of additional US box office for Zootopia 2. ABBA Voyage's avatar concert earned £104m in 2024.</p></div>
+    <div><p class="k">Where the value sits</p><p>Frequency without learning is noise. The unit of value is not a video but a closed learning loop, from signal to reusable lesson. The biggest prize is better decisions, not cheaper ones, and rights and talent consent come first.</p></div>
+  </div>
+
+  <p class="more" style="margin-top:28px">First step, a 90 day pilot: a demand map of 50 to 100 titles, a High Frequency loop on 20 of them, one holographic prototype.</p>
+</section>
+
 <section class="sec" id="mandates">
-  <p class="eyebrow"><b>02</b>Recent mandates</p>
-  <h2 class="serif">Robotics, social platforms, financing.</h2>
+  <p class="eyebrow"><b>03</b>Recent mandates</p>
+  <h2 class="serif">Media, robotics, social platforms.</h2>
   <div class="mgrid">
+    <article class="mand">
+      <div class="tagl"><span>Media · Library strategy</span><span>Current</span></div>
+      <h3 class="serif">A major media group</h3>
+      <p class="what">Advisory on legacy film and TV library strategy, applying the thesis above.</p>
+      <p class="b">Part of this mandate was representing a consortium of international investors in a bid for a listed global production and distribution media group, covering the industrial case, the structure of the offer and the relationship with the other parties to the process.</p>
+    </article>
     <article class="mand">
       <div class="tagl"><span>Robotics · Human-machine</span><span>2025</span></div>
       <h3 class="serif">Enchanted Tools</h3>
@@ -300,7 +367,7 @@ html.js.settled .stamp{transition:none}
 </section>
 
 <section class="sec" id="recognition">
-  <p class="eyebrow"><b>03</b>Recognition</p>
+  <p class="eyebrow"><b>04</b>Recognition</p>
   <h2 class="serif">Recognition for the productions led at Atlas&nbsp;V.</h2>
   <div class="tot">
     <div><span class="serif">30+</span><p>International awards, including an Emmy, two Peabody Awards and prizes at Venice, Annecy, SXSW and Tribeca</p></div>
@@ -326,7 +393,7 @@ html.js.settled .stamp{transition:none}
 </section>
 
 <section class="sec ink" id="contact">
-  <p class="eyebrow"><b>04</b>Inquire</p>
+  <p class="eyebrow"><b>05</b>Inquire</p>
   <div class="ct">
     <div>
       <h2 class="serif">Start a conversation.</h2>
@@ -383,7 +450,8 @@ html.js.settled .stamp{transition:none}
   /* reveal targets, staggered within their group */
   var groups=[
     ['.hero .cat,.dek p,.cta',0.12],
-    ['.eyebrow',0],['.rl li',0.07],['.mand',0.14],['.tot > div',0.14],
+    ['.eyebrow',0],['.rl li',0.07],['.mand',0.12],['.tot > div',0.14],
+    ['.stmt',0],['.figs > div',0.1],['#thesis .split > div',0.12],['.pf > div',0.12],
     ['.works caption,.works thead tr',0],['.works tbody tr',0.05],['.more',0],
     ['.ct .lead,.ct .btn,.addr > div',0.08]
   ];
@@ -399,35 +467,48 @@ html.js.settled .stamp{transition:none}
 
   /* count-up for the totals */
   function count(el){
-    var txt=el.textContent, m=txt.match(/^(\d+)(.*)$/); if(!m) return;
-    var end=+m[1], suf=m[2], t0=null, dur=1400;
+    var txt=el.textContent, m=txt.match(/^(\D*)(\d+(?:\.\d+)?)(.*)$/); if(!m) return;
+    var pre=m[1], end=parseFloat(m[2]), dec=(m[2].split('.')[1]||'').length, suf=m[3], t0=null, dur=1400;
     if(reduce){return;}
+    function val(k){ return (end*k).toFixed(dec); }
     function step(t){ if(!t0)t0=t; var k=Math.min(1,(t-t0)/dur); k=1-Math.pow(1-k,3);
-      el.textContent=Math.round(end*k)+suf; if(k<1) requestAnimationFrame(step); }
-    el.textContent='0'+suf; requestAnimationFrame(step);
+      el.textContent=pre+val(k)+suf; if(k<1) requestAnimationFrame(step); else el.textContent=txt; }
+    el.textContent=pre+val(0)+suf; requestAnimationFrame(step);
   }
 
+  function reveal(el,animate){
+    el.classList.add('in'); io.unobserve(el);
+    if(animate===false) return;
+    if(el.matches('.tot > div')){ var sp=el.querySelector('span'); if(sp) count(sp); }
+    if(el.matches('.figs > div')){ var nn=el.querySelector('.n'); if(nn) count(nn); }
+  }
   var io=new IntersectionObserver(function(es){
     es.forEach(function(e){
-      if(!e.isIntersecting) return;
-      e.target.classList.add('in'); io.unobserve(e.target);
-      if(e.target.matches('.tot > div')){ var sp=e.target.querySelector('span'); if(sp) count(sp); }
+      if(e.isIntersecting){ reveal(e.target); return; }
+      /* already scrolled past (deep link, refresh, back button): show it, don't animate */
+      if(e.boundingClientRect.bottom<=0) reveal(e.target,false);
     });
   },{rootMargin:'0px 0px -6% 0px',threshold:0});
   /* the hero plays on load; everything else waits for scroll */
   var hero=document.querySelector('.hero');
   document.querySelectorAll('.rv,.split').forEach(function(el){ if(!hero.contains(el)) io.observe(el); });
 
-  /* safety net: at the bottom of the page, nothing stays hidden */
+  /* safety net: a jump scroll can carry an element from below to above the
+     viewport without ever intersecting, so sweep anything already passed. */
+  var sweeping=false;
   function sweep(){
-    if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4){
+    if(sweeping) return; sweeping=true;
+    requestAnimationFrame(function(){
+      sweeping=false;
+      var atEnd=window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4;
       document.querySelectorAll('.rv:not(.in),.split:not(.in)').forEach(function(el){
-        el.classList.add('in'); io.unobserve(el);
-        if(el.matches('.tot > div')){ var sp=el.querySelector('span'); if(sp) count(sp); }
+        if(atEnd){ reveal(el); return; }
+        if(el.getBoundingClientRect().bottom<=0) reveal(el,false);
       });
-    }
+    });
   }
   window.addEventListener('scroll',sweep,{passive:true});
+  window.addEventListener('resize',sweep,{passive:true});
 
   /* load sequence */
   requestAnimationFrame(function(){ requestAnimationFrame(function(){
